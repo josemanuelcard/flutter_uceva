@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   // Lista de items de ejemplo
-  final List<Map<String, String>> items = const [
+  static const List<Map<String, String>> items = [
     {
       "title": "Ingeniería de Sistemas",
       "description": "Explora proyectos de software, IA y bases de datos.",
@@ -46,13 +46,12 @@ class HomeScreen extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
+          final id = (index + 1).toString(); // genera id para la ruta /detail/:id
+
           return GestureDetector(
             onTap: () {
-              // Enviamos el título como parámetro
-              context.push(
-                '/detail',
-                extra: item['title'],
-              );
+              // <-- CORRECCIÓN: incluir el id en la ruta para que coincida con /detail/:id
+              context.push('/detail/$id', extra: item);
             },
             child: InfoCard(
               title: item['title']!,
@@ -81,7 +80,8 @@ class HomeScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                context.replace('/tabs');
+                // replace en GoRouter -> reemplaza la entrada actual
+                GoRouter.of(context).replace('/tabs');
               },
               child: const Text("Ir con REPLACE"),
             ),
