@@ -1,52 +1,60 @@
-# Taller 1 - Flutter UCEVA
+# 📱 Taller: Navegación y Ciclo de Vida en Flutter con go_router
 
-Este proyecto corresponde al **Taller 1** de la asignatura **Electiva Móvil - UCEVA**, desarrollado en Flutter.  
-El objetivo del taller es crear una aplicación básica con los siguientes elementos:
+Este proyecto implementa una aplicación en **Flutter** que demuestra:
 
-- Texto con el **nombre completo** del estudiante.
-- Uso de imágenes desde **la web** e **imágenes locales (assets)**.
-- Un botón que cambia el título dinámicamente utilizando **setState()**.
-- Un **SnackBar** que notifica al usuario cuando el título es cambiado.
-- Un **Container** personalizado con bordes y color de fondo.
-- Una lista de elementos (ListView + ListTile) con íconos y textos representativos.
+- Navegación con **go_router** (`go`, `push`, `replace`).  
+- Paso de parámetros entre pantallas.  
+- Uso de diferentes widgets (`GridView`, `TabBar`, widget personalizado).  
+- Ciclo de vida de un **StatefulWidget** evidenciado en consola.  
 
----
-
-## 📌 Pasos para ejecutar el proyecto
-
-1. Clonar el repositorio en tu máquina local:
-   ```bash
-   git clone https://github.com/josemanuelcard/flutter_uceva.git
-
-2. Entrar en la carpeta del proyecto:
-   ```bash
-   cd flutter_uceva
-
-3. Instalar las dependencias necesarias:
-   ```bash
-   flutter pub get
-
-4. Ejecutar el proyecto en un emulador o dispositivo conectado:
-   ```bash
-   flutter run
-
-## Evidencias
-
-### 1. Estado inicial de la app
-Pantalla inicial de la aplicación antes de cualquier interacción:
-
-![Estado inicial](https://github.com/user-attachments/assets/0ef3a661-a263-4fdb-9e22-c1e1be606c3f)
+El objetivo es comprender cómo funciona la navegación en Flutter, cómo se envían parámetros y cómo se ejecutan los métodos del ciclo de vida.
 
 ---
 
-### 2. Estado tras presionar el botón
-Después de presionar el botón, el título cambia y aparece un SnackBar:
+## 🚀 Arquitectura y Navegación
 
-![Estado tras presionar el botón](https://github.com/user-attachments/assets/35003e77-4fd1-4f35-b035-503f4abea537)
+La app utiliza **go_router** para manejar las rutas:
+
+- **`/home`** → Pantalla principal con un `GridView` de tarjetas (ej. Noticias, Deportes, Ciencia).  
+- **`/detail/:id`** → Pantalla secundaria que recibe un parámetro (`id`) y muestra información detallada.  
+- **`/tabs`** → Pantalla con `TabBar` para explorar distintas secciones.  
+
+📸 *Ejemplo de la pantalla principal:*  
+<img width="479" height="1035" alt="Captura de pantalla 2025-09-18 213523" src="https://github.com/user-attachments/assets/03e95b15-8e13-46fc-848a-615424d505cd" />
 
 ---
 
-### 3. Datos del estudiante
+## 🔀 Diferencia entre `go`, `push` y `replace`
+
+- **`go`** → Navega reemplazando la ruta actual.  
+  👉 El botón **Atrás** del celular retorna al inicio de la aplicación, o sea al menu de apps del celular, saliendo de estaw  
+  <img width="465" height="1003" alt="go ejemplo" src="https://github.com/user-attachments/assets/9c05f56d-1026-4fdd-a3aa-0d6eae12a99f" />
+
+- **`push`** → Apila la nueva ruta encima de la actual.  
+  👉 El botón **Atrás** regresa a la pantalla anterior.  
+  <img width="517" height="1060" alt="push ejemplo" src="https://github.com/user-attachments/assets/3078d3b9-3958-43bf-8f84-7d14f2aa343b" />
+
+- **`replace`** → Sustituye la pantalla actual por la nueva.  
+  👉 La anterior se elimina del stack de navegación.  
+  <img width="491" height="1039" alt="replace ejemplo" src="https://github.com/user-attachments/assets/bbb192f3-2b84-42cb-b600-bb07a717323e" />
+
+---
+
+## 🔄 Evidencia del Ciclo de Vida
+
+El ciclo de vida del **StatefulWidget** se registró en consola, mostrando la ejecución de los métodos:  
+- `initState()`  
+- `didChangeDependencies()`  
+- `build()`  
+- `setState()`  
+- `dispose()`  
+
+📸 *Ejemplo de la consola durante las pruebas:*  
+<img width="1919" height="1079" alt="ciclo de vida consola" src="https://github.com/user-attachments/assets/ab101cf3-2353-47b5-828a-9aeb93c37c75" />
+
+---
+
+## 👨‍🎓 Datos del Estudiante
+
 - **Nombre completo:** José Manuel Cárdenas Gamboa  
-- **Código:** 230221051
-
+- **Código:** 230221051  
