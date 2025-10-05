@@ -1,60 +1,70 @@
-# 📱 Taller: Navegación y Ciclo de Vida en Flutter con go_router
+# 🚀 **Flutter UCEVA – Taller: Procesos en Segundo Plano**
 
-Este proyecto implementa una aplicación en **Flutter** que demuestra:
+## 📘 **Descripción General**
+Este proyecto Flutter forma parte de la asignatura de **Desarrollo Móvil**.  
+Su propósito es demostrar el manejo de **procesos en segundo plano** en Flutter utilizando:
 
-- Navegación con **go_router** (`go`, `push`, `replace`).  
-- Paso de parámetros entre pantallas.  
-- Uso de diferentes widgets (`GridView`, `TabBar`, widget personalizado).  
-- Ciclo de vida de un **StatefulWidget** evidenciado en consola.  
+- 🔹 **Asincronía con Future / async / await**  
+- 🔹 **Timer** (cronómetro o cuenta regresiva)  
+- 🔹 **Isolate** para tareas pesadas sin bloquear la interfaz  
 
-El objetivo es comprender cómo funciona la navegación en Flutter, cómo se envían parámetros y cómo se ejecutan los métodos del ciclo de vida.
-
----
-
-## 🚀 Arquitectura y Navegación
-
-La app utiliza **go_router** para manejar las rutas:
-
-- **`/home`** → Pantalla principal con un `GridView` de tarjetas (ej. Noticias, Deportes, Ciencia).  
-- **`/detail/:id`** → Pantalla secundaria que recibe un parámetro (`id`) y muestra información detallada.  
-- **`/tabs`** → Pantalla con `TabBar` para explorar distintas secciones.  
-
-📸 *Ejemplo de la pantalla principal:*  
-<img width="479" height="1035" alt="Captura de pantalla 2025-09-18 213523" src="https://github.com/user-attachments/assets/03e95b15-8e13-46fc-848a-615424d505cd" />
+La aplicación ayuda a comprender cómo ejecutar operaciones prolongadas sin afectar la **experiencia del usuario**.
 
 ---
 
-## 🔀 Diferencia entre `go`, `push` y `replace`
+## 🎯 **Objetivos del Taller**
 
-- **`go`** → Navega reemplazando la ruta actual.  
-  👉 El botón **Atrás** del celular retorna al inicio de la aplicación, o sea al menu de apps del celular, saliendo de estaw  
-  <img width="465" height="1003" alt="go ejemplo" src="https://github.com/user-attachments/assets/9c05f56d-1026-4fdd-a3aa-0d6eae12a99f" />
+### 1️⃣ Asincronía con Future / async / await
+- Simular una consulta de datos usando `Future.delayed`.
+- Mostrar los estados: **Cargando… / Éxito / Error**.
+- Imprimir en consola el orden de ejecución.
 
-- **`push`** → Apila la nueva ruta encima de la actual.  
-  👉 El botón **Atrás** regresa a la pantalla anterior.  
-  <img width="517" height="1060" alt="push ejemplo" src="https://github.com/user-attachments/assets/3078d3b9-3958-43bf-8f84-7d14f2aa343b" />
+### 2️⃣ Timer (Cronómetro o Cuenta Regresiva)
+- Control del tiempo con botones:
+  - ▶️ **Iniciar**
+  - ⏸️ **Pausar**
+  - 🔁 **Reanudar**
+  - 🔄 **Reiniciar**
+- Actualización del tiempo cada segundo.
+- Cancelación automática del `Timer` al salir de la vista.
 
-- **`replace`** → Sustituye la pantalla actual por la nueva.  
-  👉 La anterior se elimina del stack de navegación.  
-  <img width="491" height="1039" alt="replace ejemplo" src="https://github.com/user-attachments/assets/bbb192f3-2b84-42cb-b600-bb07a717323e" />
-
----
-
-## 🔄 Evidencia del Ciclo de Vida
-
-El ciclo de vida del **StatefulWidget** se registró en consola, mostrando la ejecución de los métodos:  
-- `initState()`  
-- `didChangeDependencies()`  
-- `build()`  
-- `setState()`  
-- `dispose()`  
-
-📸 *Ejemplo de la consola durante las pruebas:*  
-<img width="1919" height="1079" alt="ciclo de vida consola" src="https://github.com/user-attachments/assets/ab101cf3-2353-47b5-828a-9aeb93c37c75" />
+### 3️⃣ Isolate
+- Ejecución de una función pesada (ej. cálculo grande o generación masiva de datos).
+- Uso de `Isolate.spawn` para evitar bloqueos en la interfaz.
+- Comunicación de resultados mediante `SendPort` y `ReceivePort`.
 
 ---
 
-## 👨‍🎓 Datos del Estudiante
+## 🧩 **Estructura del Proyecto**
+<p align="center">
+  <img width="300" height="805" alt="Estructura del Proyecto" src="https://github.com/user-attachments/assets/3e7960a5-fc77-40b4-85f3-9db81c4e7b88" />
+</p>
 
-- **Nombre completo:** José Manuel Cárdenas Gamboa  
-- **Código:** 230221051  
+---
+
+## 🧰 **Tecnologías Utilizadas**
+- 🧠 **Flutter 3.x**
+- 💡 **Dart**
+- 🎨 **Material Design**
+- ⚙️ **Isolate API**
+- ⏱️ **Timer**
+- 🔄 **Future / async / await**
+
+---
+
+## 🧪 **Resultados del Taller**
+
+<p align="center">
+  <img width="446" height="1021" alt="Demo 1" src="https://github.com/user-attachments/assets/8f08fcb2-33af-492d-9ffd-652dc8ec700d" />
+</p>
+
+<p align="center">
+  <img width="982" height="296" alt="Demo 2" src="https://github.com/user-attachments/assets/25eba30f-001c-44d2-ac2a-96ceeb1054f6" />
+</p>
+
+---
+
+## 👨‍💻 **Autor**
+**José Manuel Cárdenas Gamboa**  
+📍 Universidad Central del Valle del Cauca (UCEVA)  
+📅 2025
