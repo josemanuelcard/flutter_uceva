@@ -5,6 +5,10 @@ import '../models/meal_model.dart';
 class MealService {
   static const String baseUrl = 'https://www.themealdb.com/api/json/v1/1';
 
+<<<<<<< HEAD
+=======
+  // Fetch listado de comidas (categoría Dessert como ejemplo)
+>>>>>>> feature/app_distribution
   Future<List<Meal>> fetchMeals() async {
     final response = await http.get(Uri.parse('$baseUrl/filter.php?c=Dessert'));
     
@@ -17,6 +21,10 @@ class MealService {
     }
   }
 
+<<<<<<< HEAD
+=======
+  // Fetch detalle de una comida por ID
+>>>>>>> feature/app_distribution
   Future<MealDetail> fetchMealDetail(String id) async {
     final response = await http.get(Uri.parse('$baseUrl/lookup.php?i=$id'));
     
@@ -32,4 +40,8 @@ class MealService {
       throw Exception('Error al cargar el detalle: ${response.statusCode}');
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feature/app_distribution
