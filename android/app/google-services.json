@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "133338248989",
+    "project_id": "flutteruceva",
+    "storage_bucket": "flutteruceva.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133338248989:android:98c1dbbdcf1bb2972513f4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_uceva"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYf00IwF-lyw43qFhE4jRwPr5gTuISV_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
