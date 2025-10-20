@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'config/routes.dart';  // Importa las rutas (sin ciclo)
-import 'screens/taller_segundo_plano_screen.dart'; // <-- Importa la pantalla del taller
+import 'config/routes.dart';  // Importa las rutas
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter UCEVA - Taller HTTP',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomePage(),
-        '/taller': (context) => const TallerSegundoPlanoScreen(), // Ruta al taller
-      },
+      ),
+      routerConfig: router,  // Usa go_router
     );
   }
 }
@@ -80,10 +76,10 @@ class _HomePageState extends State<HomePage> {
 
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/taller'); // Navega al taller
+                context.go('/list'); // Navega al listado de recetas
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-              child: const Text("Ir al Taller Segundo Plano"),
+              child: const Text("Ir a Listado de Recetas (Taller HTTP)"),
             ),
 
             const SizedBox(height: 20),
@@ -120,7 +116,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      routerConfig: router,  // Usa go_router
     );
   }
 }
