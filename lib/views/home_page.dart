@@ -61,6 +61,39 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 20),
 
+            // BOTÓN MORADO - JWT Auth (FUNCIONALIDAD COMPLETA)
+            SizedBox(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                onPressed: () {
+                  print("🎉 BOTÓN MORADO PRESIONADO!");
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("🎉 ¡Navegando a Autenticación JWT!"),
+                      backgroundColor: Colors.purple,
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                  // Navega a la funcionalidad JWT completa
+                  context.go('/auth');
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 5,
+                ),
+                child: const Text(
+                  "Ir a Autenticación JWT (Taller JWT)",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
             // Container con bordes
             Container(
               padding: const EdgeInsets.all(8),

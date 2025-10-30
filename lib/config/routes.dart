@@ -1,15 +1,29 @@
 import 'package:go_router/go_router.dart';
-import '../views/home_page.dart';  // Importa HomePage desde su nuevo archivo
+import '../screens/home_screen.dart';  // Importa HomeScreen desde screens
+import '../views/home_page.dart';  // Importa HomePage desde views
 import '../views/list_view.dart';
 import '../views/detail_view.dart';
+import '../auth/views/simple_auth_screen.dart';
+import '../auth/views/evidencia_local_screen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/',  // Inicia en HomePage
+  initialLocation: '/',
+  debugLogDiagnostics: true,
   routes: [
     GoRoute(
-      path: '/',  // Corregido: Agregado path explícito
+      path: '/',
       name: 'home',
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/views',
+      name: 'views',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/auth',
+      name: 'auth',
+      builder: (context, state) => const SimpleAuthScreen(),
     ),
     GoRoute(
       path: '/list',
@@ -24,6 +38,11 @@ final GoRouter router = GoRouter(
         final name = state.pathParameters['name']!;
         return DetailViewScreen(id: id, name: name);
       },
+    ),
+    GoRoute(
+      path: '/evidencia',
+      name: 'evidencia',
+      builder: (context, state) => const EvidenciaLocalScreen(),
     ),
   ],
 );
